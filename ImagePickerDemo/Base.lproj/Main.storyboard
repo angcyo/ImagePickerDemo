@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePickerDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,57 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" image="tapPng" translatesAutoresizingMaskIntoConstraints="NO" id="Gm0-dC-Ju3">
+                                <rect key="frame" x="30" y="126" width="540" height="466"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yZI-wa-ick" appends="YES" id="xrZ-gd-Wl5"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图片选择" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg8-14-3He">
+                                <rect key="frame" x="230" y="64" width="140" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="4rj-nG-Onp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.41176470590000003" green="0.87843137250000003" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qg8-14-3He" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="Af4-2J-G24"/>
+                            <constraint firstItem="Qg8-14-3He" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="210" id="PrX-z1-gce"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gm0-dC-Ju3" secondAttribute="bottom" constant="8" id="alj-rA-hSA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qg8-14-3He" secondAttribute="trailing" constant="210" id="d7c-tq-vWR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gm0-dC-Ju3" secondAttribute="trailing" constant="10" id="jOy-sW-1tU"/>
+                            <constraint firstItem="Gm0-dC-Ju3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="kTS-Rp-C9f"/>
+                            <constraint firstItem="Qg8-14-3He" firstAttribute="centerX" secondItem="Gm0-dC-Ju3" secondAttribute="centerX" id="zY4-Lv-JFR"/>
+                            <constraint firstItem="Gm0-dC-Ju3" firstAttribute="top" secondItem="Qg8-14-3He" secondAttribute="bottom" constant="20" id="zcO-fS-Gts"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PrX-z1-gce"/>
+                                <exclude reference="d7c-tq-vWR"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Gm0-dC-Ju3" id="Ajz-uj-gT6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yZI-wa-ick">
+                    <connections>
+                        <action selector="onTapImageView:" destination="BYZ-38-t0r" id="Jv6-pW-Od0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="468" y="381"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tapPng" width="92" height="127"/>
+    </resources>
 </document>
